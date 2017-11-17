@@ -1,0 +1,25 @@
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Створення екзамену{% endblock meta_title %}
+{% block title %}Додати екзамен{% endblock title %}
+{% block status_message %}
+{% if form.errors %}
+<div class="alert alert-warning" role="alert">Виправте помилки</div>
+{% endif %}
+{% endblock status_message %}
+{% block content %}
+<form class="form-horizontal" method="post"   enctype="”multipart/form-data”" action=".">
+
+     {% csrf_token %}
+     {{ form.as_p }}
+
+    <div class="form-group">
+        <div class="panel  col-sm-5">
+            <div class="panel-footer col-sm-offset-5">
+                <input type="submit" value="Зберегти" name="add_button" class="btn btn-primary"/>
+                <button type="submit" name="cancel" class="btn btn-link" value="Скасувати">Скасувати</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock content %}

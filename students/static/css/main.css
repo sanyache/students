@@ -1,0 +1,61 @@
+/* Global Styles */
+.alert {
+  margin: 10px 0 5px 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+label{
+    color: blue;}
+/* Groups Selector */
+#group-selector {
+  margin-top: 30px;
+}
+#group-selector select {
+  width: 80%;
+  margin: 0;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  height: 30px;
+  line-height: 30px;
+  color: #555555;
+}
+
+td.day-box,
+th.day-header{
+    padding: 4px !important;
+    vertical-align: middle !important;
+    text-align: center;
+}
+#ajax-progress-indicator{
+    display: none;
+}
+
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    background-color: #DCDCDC;
+}
+
+#caption{
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 0;
+    height: 30px;
+}
+/* Footer Styles */
+#footer {
+  height: 140px;
+  width: 90%;
+  bottom: 0;
+  background: rgda(39,39,0.95)none repeat scroll 0% 0%;
+  position: fixed;
+  padding-top: 5px;
+  border-top: 1px solid #dddddd;
+  background-position: top;
+  background-image: url("123.jpg");
+  background-repeat: no-repeat;
+}

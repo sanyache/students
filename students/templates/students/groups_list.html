@@ -1,0 +1,50 @@
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Групи{% endblock meta_title %}
+{% block title %}Групи{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <div class="row col-xs-6">
+        <a href="{% url 'groups_add' %}" class="btn btn-primary">Додати групу</a>
+    </div>
+
+</div>
+<br/>
+<br/>
+
+
+                    <!--Start student listing -->
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th><a href=""></a>№</th>
+            <th><a href="#">Група</a> </th>
+            <th><a href="#">Староста</a></th>
+            <th><a href="#">Дії</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for group in groups %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+
+            <td>{{group.title}}</td>
+            <td>{{ group.leader.last_name }} {{ group.leader.first_name }}</td>
+            <td>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Дія
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" >
+                        <li><a href="{% url 'groups_edit' group.id %}">Редагувати</a></li>
+                        <li><a href="{% url 'groups_delete' group.id %}">Видалити</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

@@ -1,0 +1,100 @@
+{% load static from staticfiles %}
+<!DOCTYPE HTML>
+<html xml:lang="uk" >
+     <head>
+         <meta charset="UTF-8"/>
+         <title>Сервіс обліку студентів {% block meta_title %}{% endblock meta_title %}</title>
+         <!--<meta name="description" value="Система обліку студентів" > -->
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://cdn.jsdeliver.net/bootstrap/3.3.0/css/bootstrap.min.css" >
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.css" />
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker-standalone.min.css" />
+
+         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+         {% block extra_css %}{% endblock extra_css %}
+     </head>
+     <body>
+            <div class="container">
+                <!-- Start Header -->
+                <div class="row" id="header">
+                    <div class="col-xs-6">
+                        <h1>Сервіс обліку студентів</h1>
+                    </div>
+                    <!--Group selector-->
+                    <div class="col-xs-2" id="group-selector">
+                        <strong>Група</strong>
+                        <select>
+                            <option value="">Усі студенти</option>
+                            {% for group in GROUPS %}
+                            <option value="{{ group.id }}"{% if group.selected %}selected="1"{% endif %}>{{ group.title }}{% if group.leader %},
+                                {{ group.leader }}{% endif %}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <!--Start subheader-->
+                <div class="row" id="sub-header">
+                    <ul class="nav nav-tabs" id="menu" role="tablist">
+                        <li role="presentation" {% if request.path == '/' %} class="active" {% endif %}> <a href="{% url 'home' %}">Студенти</a> </li>
+                        <li role="presentation" {% if '/journal' in request.path %} class="active" {% endif %}><a href="{% url 'journal' %}">Журнал</a></li>
+                        <li role="presentation" {% if '/groups' in request.path  %} class="active" {% endif %} ><a href="{% url 'groups' %}">Групи</a></li>
+                        <li role="presentation" {% if '/exams' in request.path %} class="active" {% endif %}><a href="{% url 'exams' %}">Екзамени</a></li>
+                    </ul>
+                </div>
+
+                <!--Start content columns-->
+                <div class="row" id="content-columns">
+                    <div class="col-xs-12" id="content-column">
+                        {% block status_message %}
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} " role="alert">{{ message }}</div>
+                            {% endfor %}
+                            {% endif %}
+                        {% endblock status_message %}
+                        <h2>{% block title %}{% endblock title %}</h2>
+                        {% block content %}{% endblock content %}
+                    </div>
+                </div>
+                <!--End content-->
+                <!--Start footer-->
+                <div class="row" id="footer">
+                    <div class="col-xs-12">
+                        &copy; 2017 sanyache
+                    </div>
+
+                </div>
+
+
+            </div>
+
+             <!-- Modal window  -->
+         <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                         <h4 class="modal-title" id="myModalLabel" ><!-- --></h4>
+                     </div>
+                     <div class="modal-body"><!-- --></div>
+                     <img class="modal-content" id="img00" >
+                     <div id="caption"></div>
+                     <div class="modal-footer"><!-- --></div>
+                 </div>
+
+             </div>
+         </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment/min/js"></script>
+     <script src="{% static 'js/jquery.cookie.js' %}"></script>
+     <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+     <script data-require="MomentJS@2.10.0" data-semver="2.10.0" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+     <script src="{% static 'js/main.js' %}"></script>
+     {% block extra_js %}{% endblock extra_js %}
+     </body>
+</html>
