@@ -1,14 +1,17 @@
 {% extends "students/base.html" %}
 {% load static from staticfiles %}
 {% block meta_title %}Студенти{% endblock meta_title %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/typeahead.css' %}">
+{% endblock extra_css %}
 {% block title %}База студентів{% endblock title %}
 {% block content %}
 
 <div class="container">
     <div class="row col-xs-6">
-        <a href="{% url 'students_add' %}" class="btn btn-primary">Додати студента</a>
+        <a href="{% url 'students_add' %}" class="btn btn-primary student-add-form-link">Додати студента</a>
     </div>
-    <div class="row col-xs-6">
+    <div class="row col-xs-6" id="search_student">
         <form method="post" enctype="multipart/form-data" action=".">
                {% csrf_token %}
             <label for="search_student">Пошук студентів</label>
@@ -19,7 +22,7 @@
                 <option value="student_group">Група</option>
                 <option value="ticket">№ квитка</option>
             </select>
-            <input class="w3-input w3-border" name="search_student" id="search_student" type="text" value="{{request.POST.search_student}}" placeholder="Введіть дані пошуку">
+            <input class="w3-input w3-border typeahead" name="search_student" id="search" type="text" value="{{request.POST.search_student}}" placeholder="Введіть дані пошуку">
             <button type="submit" class="btn btn-primary" name="search_button">Пошук</button>
         </form>
 

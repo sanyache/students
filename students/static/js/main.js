@@ -79,6 +79,42 @@ function initEditStudentPage(){
         return false;
     });
 }
+function initAddStudentPage(){
+    $('a.student-add-form-link').click(function(event){
+        var link = $(this);
+        $.ajax({
+            'url': link.attr('href'),
+            'dataType': 'html',
+            'type': 'get',
+            'success': function(data, status, xhr){
+                if (status != 'success'){
+                    alert('Помилка на сервері. Спробуйте пізніше.');
+                    return false;
+                }
+                var modal = $('#myModal'), html = $(data), form = html.find('#content-column form');
+                modal.find('.modal-title').html(html.find('#content-column h2').text());
+                var modalImg = document.getElementById('img00');
+                linkImg = "http://127.0.0.1:8000/media/default.jpg";
+                modalImg.src = linkImg;
+                modal.find('.modal-body').html(form);
+                modal.modal('show');
+                $('#photo').change(function(){
+                    var modalImg = document.getElementById('img00'), divimg=this.value;
+                    linkImg = divimg.replace("C:\\fakepath\\", "");
+                    modalImg.src = "http://127.0.0.1:8000/media/"+ linkImg;
+                });    
+                
+                
+
+            },
+            'error': function(){
+                alert('Помилка на сервері');
+                return false;
+            }
+        });
+        return false;
+    });
+}
 function initImgPage(){
     var modal = $('#myModal');
     var img = document.getElementsByClassName('img-circle');
@@ -94,10 +130,13 @@ function initImgPage(){
         return false;}
     }
  }
+
 $(document).ready(function(){
     initJournal();
     initGroupSelector();
     initDateFields();
     initEditStudentPage();
+    initAddStudentPage();
     initImgPage();
+    search();
 });

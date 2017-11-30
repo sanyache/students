@@ -1,16 +1,18 @@
 #-*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.forms import ModelForm
+from django.views import View
 from django.views.generic import UpdateView, DeleteView
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from crispy_forms.bootstrap import FormActions
 from ..models import Student, Group
 from ..util import paginate, get_current_group
+import json
 
 def students_list(request):
     current_group = get_current_group(request)
@@ -36,6 +38,15 @@ def students_list(request):
             messages.info(request, u"Студента не знайдено")
             return HttpResponseRedirect(reverse('home'))
         #    return HttpResponseRedirect(u'%s?status_message=%s'%(reverse('home'),u"Студента не знайдено"))
+    #if request.GET.get('q', ''):
+    #    q = request.GET.get('q', '')
+    #    students = Student.objects.filter(last_name__icontains=q)
+    #    name_list = []
+    #    for student in students :
+    #        new = student.last_name
+    #        name_list.append(new)
+    #    return  HttpResponse(json.dumps(name_list), content_type="application/json")
+
     if order_by in ('last_name', 'first_name','ticket'):
         students = students.order_by(order_by)
     elif order_by in ('student_group'):
@@ -92,6 +103,7 @@ def students_add(request):
             else:
                 return render(request, 'students/students_add.html', {'groups': Group.objects.all().order_by('title'),'errors': errors})
         elif request.POST.get('cancel_button') is not None:
+            messages.info(request,(u"Додавання студента відмінено"))
             return HttpResponseRedirect(reverse('home'))
     else:
         return render(request, 'students/students_add.html', {'groups': Group.objects.all().order_by('title')})
@@ -140,3 +152,14 @@ class StudentDeleteView(DeleteView):
     def get_success_url(self):
         messages.warning(self.request, u"Студента %s  видалено" %(self.object))
         return reverse('home')
+
+class Search(View):
+
+    def get(self, request):
+        q = request.GET.get('q', '')
+        students = Student.objects.filter(last_name__icontains= q)
+        name_list = []
+        for student in students:
+            new = {'q':student.last_name}
+            name_list.append(new)
+        return HttpResponse(json.dumps(name_list), content_type="application/json")
