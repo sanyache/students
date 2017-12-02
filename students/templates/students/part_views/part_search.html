@@ -1,40 +1,4 @@
-{% extends "students/base.html" %}
-{% load static from staticfiles %}
-{% block meta_title %}Студенти{% endblock meta_title %}
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/typeahead.css' %}">
-{% endblock extra_css %}
-{% block title %}База студентів{% endblock title %}
-{% block content %}
-
-<div class="container">
-    <div class="row col-xs-6">
-        <a href="{% url 'students_add' %}" class="btn btn-primary student-add-form-link">Додати студента</a>
-    </div>
-    <div class="row col-xs-6" id="search_student">
-        <form method="post" enctype="multipart/form-data" action="." id="sear_form">
-               {% csrf_token %}
-            <label for="search_student" ><a href="{% url 'student_search' %}"> Пошук студентів </a></label>
-            <select id="search_field" name="search_field">
-                <option value="last_name">Поле пошуку</option>
-                <option value="last_name">Прізвище</option>
-                <option value="first_name">Ім'я</option>
-                <option value="student_group">Група</option>
-                <option value="ticket">№ квитка</option>
-            </select>
-            <input class="w3-input w3-border typeahead" name="search_student" id="search" type="text" value="{{request.POST.search_student}}" placeholder="Введіть дані пошуку">
-            <button type="submit" class="btn btn-primary" name="search_button">Пошук</button>
-        </form>
-
-    </div>
-</div>
-<br/>
-<br/>
-
-
-                    <!--Start student listing -->
-
-  <table class="table table-hover table-striped">
+<table class="table table-hover table-striped">
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
         <tr>
@@ -70,11 +34,9 @@
         <tr>
             <td>{{ forloop.counter }}</td>
             <td >
-                {% if student.photo %}
+
                 <img height="30" width="30" src="{{ student.photo.url }}" class="img-circle" alt="{{ student.last_name }} {{student.first_name}}" />
-                {% else %}
-                <img height="30" width="30"  src="{% static 'img/default.jpg' %}" class="img-circle" alt="{{ student.last_name }} {{ student.first_name }}" />
-                {% endif %}
+
             </td>
             <td><a title="Редагувати" href="{% url 'students_edit' student.id %}" class="student-edit-form-link " >{{student.last_name}}</a></td>
             <td><a title="Редагувати" href="{% url 'students_edit' student.id %}" class="student-edit-form-link">{{ student.first_name }}</a></td>
@@ -96,13 +58,5 @@
         </tr>
         {% endfor %}
     </tbody>
-  </table>
-
+</table>
 {% endwith %}
-{% with object_list=students %}
-    {% include "students/pagination.html" %}
-{% endwith %}
-{% block extra_js %}
-    <script src="{% static 'js/student_search.js' %}"></script>
-{% endblock extra_js %}
-{% endblock content %}

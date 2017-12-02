@@ -18,5 +18,7 @@ $('#search_student .typeahead').typeahead({
   name: 'searchStudent',
   displayKey: 'q',
   source: searchStudent,
-  
+  templates:{
+    empty: 'Не має в базі',
+  }
 });

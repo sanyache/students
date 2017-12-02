@@ -67,7 +67,12 @@ function initEditStudentPage(){
                 linkImg = "http://127.0.0.1:8000"+ divimg;
                 modalImg.src = linkImg;
                 modal.find('.modal-body').html(form);
-                modal.modal('show');
+                initEditStudentForm(form, modal);
+                modal.modal({
+                    'keyboard': false,
+                    'backdrop': false,
+                    'show': true
+                });
                 
 
             },
@@ -79,6 +84,32 @@ function initEditStudentPage(){
         return false;
     });
 }
+function initEditStudentForm(form, modal){
+
+    form.find('input[name="cancel_button"]').click(function(event){
+        modal.modal('hide');
+        return false;
+    });
+    form.ajaxForm({
+        'dataType': 'html',
+        'error': function(){
+            alert('Помилка на сервері. Спробуйте пізніше');
+            return false;
+        },
+        
+        'success': function(data, status, xhr){
+                var html = $(data), newform = html.find('#content-column form');
+                modal.find('.modal-body').html(html.find('.alert'));
+                if (newform.length>1){
+                modal.find('.modal-body').append(newform);
+                initEditStudentForm(newform, modal);
+                } else {
+                  setTimeout(function(){location.reload(true);},500);
+              }
+            }  
+        }); 
+}
+
 function initAddStudentPage(){
     $('a.student-add-form-link').click(function(event){
         var link = $(this);

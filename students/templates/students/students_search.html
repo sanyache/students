@@ -1,0 +1,38 @@
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Пошук cтудента{% endblock meta_title %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/typeahead.css' %}">
+{% endblock extra_css %}
+{% block title %}Пошук студента{% endblock title %}
+{% block content %}
+<div class="container">
+
+    <div class="row col-xs-6" id="search_student">
+        <form method="post"  action="" id="search_form">
+            {% csrf_token %}
+            <label for="search_student">Пошук студентів</label>
+            <select id="search_field" name="search_field">
+                <option value="last_name">Поле пошуку</option>
+                <option value="last_name">Прізвище</option>
+                <option value="first_name">Ім'я</option>
+                <option value="student_group">Група</option>
+                <option value="ticket">№ квитка</option>
+            </select>
+            <input class="w3-input w3-border typeahead" name="search_student" id="search" type="text" value="{{request.POST.search_student}}" placeholder="Введіть дані пошуку">
+            <button type="submit" class="btn btn-primary" name="search_button">Пошук</button>
+        </form>
+
+    </div>
+</div>
+<br/>
+<br/>
+<div class="search-result">
+    <p>Тут будуть результати пошуку</p>
+</div>
+
+{% block extra_js %}
+    <script src="{% static 'js/student_search.js' %}"></script>
+{% endblock extra_js %}
+
+{% endblock content %}

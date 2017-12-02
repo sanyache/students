@@ -4,9 +4,10 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.template.loader import render_to_string
 from django.forms import ModelForm
 from django.views import View
-from django.views.generic import UpdateView, DeleteView
+from django.views.generic import UpdateView, DeleteView, ListView
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from crispy_forms.bootstrap import FormActions
@@ -161,5 +162,17 @@ class Search(View):
         name_list = []
         for student in students:
             new = {'q':student.last_name}
-            name_list.append(new)
+            if not new in name_list:
+                name_list.append(new)
         return HttpResponse(json.dumps(name_list), content_type="application/json")
+
+class StudentSearch(ListView):
+    model = Student
+    template_name = 'students/students_search.html'
+
+    def post(self, request):
+        search = request.POST.get('search_student')
+        students = Student.objects.filter(last_name__iexact=search)
+        context = {'students': students}
+        return_str = render_to_string('students/part_views/part_search.html', context)
+        return HttpResponse(json.dumps(return_str), content_type='application/json')

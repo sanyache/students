@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from students.views import students,groups,exams
-from students.views.students import StudentUpdateView,StudentDeleteView,Search
+from students.views.students import StudentUpdateView,StudentDeleteView,Search,StudentSearch
 from students.views.groups import GroupCreateView, GroupUpdateView,GroupDeleteView
 from students.views.exams import ExamCreateView, ExamUpdateView, ExamDeleteView
 from students.views.journal import JournalView
@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(), name='students_delete'),
 
     url(r'^students/search/$', Search.as_view(), name='search'),
+    url(r'^students/student_search/$', StudentSearch.as_view(), name='student_search'),
 
     url(r'^groups/$', groups.groups_list, name='groups'),
     url(r'^groups/add/$', GroupCreateView.as_view(), name='groups_add'),
