@@ -1,0 +1,25 @@
+{% extends "students/base.html" %}
+{% load static from staticfiles %}
+{% block meta_title %}Реєстрація{% endblock meta_title %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock extra_css %}
+{% block title %}{% endblock title %}
+{% block body %}
+<div class="container">
+    <h2> Реєстрація</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!--{% include 'students/includes/form.html' %}-->
+        <button type="submit" class="btn btn-primary">Створити акаунт</button>
+        <a href="{% url 'home' %}" class="btn btn-default" role="button">Скасувати</a>
+    </form>
+    <div class="text-center">
+        Вже є акаунт? <a href="{% url 'login' %}">Log in</a>
+
+    </div>
+</div>
+
+
+{% endblock body %}
