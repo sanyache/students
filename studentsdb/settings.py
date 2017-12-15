@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'widget_tweaks',
+    'registration',
+    'accounts',
     'students',
 ]
 
@@ -109,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 
@@ -124,3 +127,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+REGISTRATION_OPEN = True
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL ='home'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ADMIN_EMAIL = 'sanyache75@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'sanyache75@gmail.com'
+EMAIL_HOST_PASSWORD = 'passat2015'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
