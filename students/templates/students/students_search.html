@@ -12,6 +12,7 @@
         <form method="post"  action="" id="search_form">
             {% csrf_token %}
             <label for="search_student">Пошук студентів</label>
+
             <select id="search_field" name="search_field">
                 <option value="last_name">Поле пошуку</option>
                 <option value="last_name">Прізвище</option>

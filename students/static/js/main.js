@@ -51,7 +51,7 @@ function initDateFields(){
 function initEditStudentPage(){
     $('a.student-edit-form-link').click(function(event){
         var link = $(this);
-        $.ajax({
+                $.ajax({
             'url': link.attr('href'),
             'dataType': 'html',
             'type': 'get',
@@ -113,11 +113,11 @@ function initEditStudentForm(form, modal){
 function initAddStudentPage(){
     $('a.student-add-form-link').click(function(event){
         var link = $(this);
-        $.ajax({
+        $.ajax({ 
             'url': link.attr('href'),
             'dataType': 'html',
             'type': 'get',
-            'success': function(data, status, xhr){
+            'success': function(data, status, xhr){ 
                 if (status != 'success'){
                     alert('Помилка на сервері. Спробуйте пізніше.');
                     return false;
@@ -162,12 +162,66 @@ function initImgPage(){
     }
  }
 
-$(document).ready(function(){
+function initAnimation(){
+    $('a.animated').hover(
+        function(){
+            $(this).addClass('flash');
+        },
+        function(){
+            $(this).removeClass('flash');
+        }
+    );
+}
+
+function initLangSelector(){
+    $('#lang-selector select').change(function(event){
+        var lang = $(this).val();
+        if (lang){
+            $.cookie('django_language',lang, {'path': '/'});
+        } else {
+            $.removeCookie('django_language', {'path': '/'});
+        }
+        location.reload(true);
+        return true;
+    });
+}
+function loadMore(){ 
+    var page = 1;
+    $('a.load-more').click(function(event){ 
+        var link;
+        var num_pages = $(this).data('pages');
+        page += 1;
+        if( page <= num_pages){
+            link =  "http://127.0.0.1:8000/?page="+ page;
+        
+            $.ajax({
+                'url': link,
+                'dataType': 'html',
+                'type': 'get',
+                'success': function(data, status, xhr){ 
+                    html = $(data).find('tbody');
+                    $('table').append(html);
+                
+                }
+            });
+        } 
+        if( page == num_pages ){
+            $(this).hide();
+        }
+        return false;
+    });
+}
+
+
+$(document).ready(function(){ loadMore();
     initJournal();
     initGroupSelector();
     initDateFields();
     initEditStudentPage();
     initAddStudentPage();
     initImgPage();
+    initAnimation();
+    initLangSelector();
     search();
+    
 });

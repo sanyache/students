@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from students.views import students,groups,exams, contact_admin
@@ -21,6 +21,7 @@ from students.views.students import StudentUpdateView,StudentDeleteView,Search,S
 from students.views.groups import GroupCreateView, GroupUpdateView,GroupDeleteView
 from students.views.exams import ExamCreateView, ExamUpdateView, ExamDeleteView
 from students.views.journal import JournalView
+from students.views.rest import StudentListAPI, StudentDetailAPI
 from accounts import views as accounts_views
 from settings import MEDIA_ROOT, DEBUG
 from django.conf import settings
@@ -33,6 +34,8 @@ urlpatterns = [
     url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
     url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(), name='students_delete'),
 
+    url(r'^students/api/$', StudentListAPI.as_view()),
+    url(r'^students/api/(?P<pk>[0-9]+)/$', StudentDetailAPI.as_view()),
     url(r'^students/search/$', Search.as_view(), name='search'),
     url(r'^students/student_search/$', StudentSearch.as_view(), name='student_search'),
 
@@ -59,6 +62,8 @@ urlpatterns = [
     url(r'^reset/done/$', auth_views.PasswordResetDoneView.as_view(template_name='students/password_reset_done.html'), name='password_reset_done'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',	auth_views.PasswordResetConfirmView.as_view(template_name='students/password_reset_confirm.html'), name='password_reset_confirm'),
     url(r'^reset/complete/$', auth_views.PasswordResetCompleteView.as_view(template_name='students/password_reset_complete.html'),name='password_reset_complete'),
+    
+    url(r'^oauth/', include('social_django.urls', namespace='social')),    
 
     url(r'^admin/', admin.site.urls),
 ] +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

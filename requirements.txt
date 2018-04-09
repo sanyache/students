@@ -1,0 +1,11 @@
+Django==1.11
+Pillow
+MySQL-python
+django-crispy-forms==1.6.1
+python-dateutil
+django-registration-redux==1.6
+python-social-auth==0.3.6
+social-auth-app-django
+requests==2.5.3
+django-widget-tweaks
+djangorestframework

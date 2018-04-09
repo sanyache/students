@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def paginate(objects, size, request, context, var_name='object_list'):
@@ -13,7 +14,7 @@ def paginate(objects, size, request, context, var_name='object_list'):
     context['is_paginated'] = object_list.has_other_pages()
     context['page_obj'] = object_list
     context['paginator'] = paginator
-
+    context['num_pages'] = paginator.num_pages
     return context
 
 def get_groups(request):
@@ -41,3 +42,13 @@ def get_current_group(request):
             return group
     else:
         return None
+
+def get_current_lang(request):
+    lang = request.COOKIES.get('django_language')
+
+    if lang == 'uk':
+        LANGUAGE = u"Укр"
+        return LANGUAGE
+    else:
+        LANGUAGE = 'Eng'
+        return LANGUAGE

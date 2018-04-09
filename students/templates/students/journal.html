@@ -1,4 +1,5 @@
 {% extends "students/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
 
 {% block meta_title %}Облік відвідування{% endblock meta_title %}
@@ -19,8 +20,8 @@
 
     <p id="journal-nav" class="text-center">
         <a href="?month={{ prev_month }}" title="Попередній місяць">&larr;</a>
-        <strong>{{ month_verbose }} {{ year }} </strong>
-        <a href="?month={{ next_month }}">&rarr;</a>
+        <strong>{% trans month_verbose %} {{ year }} </strong>
+        <a href="?month={{ next_month }}" title="Наступний місяць">&rarr;</a>
     </p>
     <table class="table table-hover table-striped table-bordered" id="students-journal">
         <thead>
@@ -29,7 +30,7 @@
                 <th class="name">Студент</th>
                 {% for day in month_header %}
                 <th class="day-header">
-                {{ day.verbose }}
+                {% trans day.verbose %}
                 <br/>
                 {{ day.day }}
                 </th>

@@ -14,6 +14,9 @@ label{
 #group-selector {
   padding-top: 10px;
 }
+#lang-selector{
+    padding-top: 10px;
+}
 #strong_selector{
     color: #ffffff ;
 }
@@ -55,6 +58,10 @@ th.day-header{
     font-size: 30px;
     padding: 10px 0;
     height: 30px;
+}
+.fa-facebook{
+    background: #004d66;
+    color: white;
 }
 /* Footer Styles */
 #footer {

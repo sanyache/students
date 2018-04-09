@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'widget_tweaks',
+    'rest_framework',
     'registration',
+    'social_django',
     'accounts',
     'students',
 ]
@@ -49,11 +51,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'studentsdb.urls'
@@ -70,11 +74,21 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 		'students.context_processors.groups_processor',
+		'students.context_processors.lang_processor',
+		'social_django.context_processors.backends',
+		'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1383994755018466'
+SOCIAL_AUTH_FACEBOOK_SECRET = '1cb77142c268fe54ce89fcc4ec9462d2'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
