@@ -1,12 +1,13 @@
 {% extends "students/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
 {% block meta_title %}Групи{% endblock meta_title %}
-{% block title %}Групи{% endblock title %}
+{% block title %}{% trans 'Groups' %}{% endblock title %}
 {% block content %}
 
 <div class="container">
     <div class="row col-xs-6">
-        <a href="{% url 'groups_add' %}" class="btn btn-primary">Додати групу</a>
+        <a href="{% url 'groups_add' %}" class="btn btn-primary">{% trans 'Add group' %}</a>
     </div>
 
 </div>
@@ -19,9 +20,9 @@
     <thead>
         <tr>
             <th><a href=""></a>№</th>
-            <th><a href="#">Група</a> </th>
-            <th><a href="#">Староста</a></th>
-            <th><a href="#">Дії</a></th>
+            <th><a href="#">{% trans 'Group' %}</a> </th>
+            <th><a href="#">{% trans 'Leader' %}</a></th>
+            <th><a href="#">{% trans 'Actions' %}</a></th>
         </tr>
     </thead>
     <tbody>
@@ -33,12 +34,12 @@
             <td>{{ group.leader.last_name }} {{ group.leader.first_name }}</td>
             <td>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Дія
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{% trans 'Action' %}
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" >
-                        <li><a href="{% url 'groups_edit' group.id %}">Редагувати</a></li>
-                        <li><a href="{% url 'groups_delete' group.id %}">Видалити</a></li>
+                        <li><a href="{% url 'groups_edit' group.id %}">{% trans 'Edit' %}</a></li>
+                        <li><a href="{% url 'groups_delete' group.id %}">{% trans 'Delete' %}</a></li>
                     </ul>
                 </div>
             </td>

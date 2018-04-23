@@ -19,7 +19,7 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            auth_login(request, user)
+            auth_login(request, user,backend='django.contrib.auth.backends.ModelBackend')
             return redirect('home')
     else:
         form = SignUpForm()
@@ -42,7 +42,8 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
 
-        return render(request, 'students/my_account.html',{'user_form': user_form, 'profile_form': profile_form})
+        return HttpResponseRedirect(reverse('home'))
+            #render(request, 'students/my_account.html',{'user_form': user_form, 'profile_form': profile_form})
     else:
         user_id = User.objects.get(pk= request.user.pk)
         user_form = UserForm(instance= request.user)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-24 16:37+0000\n"
+"POT-Creation-Date: 2018-04-22 19:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,58 +17,268 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: forms.py:6
+msgid "Your email address"
+msgstr ""
+
+#: forms.py:7
+msgid "Head"
+msgstr ""
+
+#: forms.py:8
+msgid "Text area"
+msgstr ""
+
+#: templates/contact_admin/form.html:5
+msgid "Contact with admin"
+msgstr ""
+
+#: templates/contact_admin/form.html:9
+msgid "Please correct the errors"
+msgstr ""
+
+#: templates/contact_admin/form.html:18
+msgid "Send"
+msgstr ""
+
 #: templates/students/base.html:7 templates/students/base.html:28
 msgid "Students accounting service"
 msgstr ""
 
 #: templates/students/base.html:32 templates/students/base.html:34
-#: templates/students/base.html:99 templates/students/students_list.html:4
+#: templates/students/base.html:111 templates/students/students_list.html:4
 msgid "Students"
 msgstr ""
 
-#: templates/students/base.html:35 templates/students/base.html:101
+#: templates/students/base.html:35 templates/students/base.html:113
 msgid "Journal"
 msgstr ""
 
-#: templates/students/base.html:36 templates/students/base.html:102
+#: templates/students/base.html:36 templates/students/base.html:114
+#: templates/students/groups_list.html:5
 msgid "Groups"
 msgstr ""
 
-#: templates/students/base.html:37 templates/students/base.html:103
+#: templates/students/base.html:37 templates/students/base.html:115
+#: templates/students/exams_list.html:5
 msgid "Exams"
 msgstr ""
 
-#: templates/students/base.html:43 templates/students/students_list.html:24
-#: templates/students/students_list.html:61
+#: templates/students/base.html:44 templates/students/exams_list.html:24
+#: templates/students/groups_list.html:23
+#: templates/students/students_list.html:27
+#: templates/students/students_list.html:64
 msgid "Group"
 msgstr ""
 
-#: templates/students/base.html:45
+#: templates/students/base.html:46
 msgid "All students"
 msgstr ""
 
-#: templates/students/base.html:57
+#: templates/students/base.html:68 templates/students/my_account.html:15
+#: templates/students/password_reset_done.html:7
 msgid "My account"
 msgstr ""
 
-#: templates/students/base.html:58
+#: templates/students/base.html:69
 msgid "Change Password"
 msgstr ""
 
-#: templates/students/base.html:60 templates/students/base.html:64
+#: templates/students/base.html:71 templates/students/base.html:75
 msgid "Logout"
 msgstr ""
 
-#: templates/students/base.html:66
+#: templates/students/base.html:77
 msgid "SignUp"
 msgstr ""
 
-#: templates/students/base.html:67
+#: templates/students/base.html:78 templates/students/login.html:8
 msgid "Login"
 msgstr ""
 
-#: templates/students/base.html:104
+#: templates/students/base.html:116
 msgid "Contact admin"
+msgstr ""
+
+#: templates/students/exams_list.html:10
+msgid "Add exam"
+msgstr ""
+
+#: templates/students/exams_list.html:23
+msgid "Exam day"
+msgstr ""
+
+#: templates/students/exams_list.html:25
+msgid "Subject"
+msgstr ""
+
+#: templates/students/exams_list.html:26
+msgid "Teacher"
+msgstr ""
+
+#: templates/students/exams_list.html:27 templates/students/exams_list.html:41
+#: templates/students/groups_list.html:37
+msgid "Action"
+msgstr ""
+
+#: templates/students/exams_list.html:45 templates/students/groups_list.html:41
+#: templates/students/students_list.html:86
+#: templates/students/students_list.html:87
+msgid "Edit"
+msgstr ""
+
+#: templates/students/exams_list.html:46 templates/students/groups_list.html:42
+msgid "Delete"
+msgstr ""
+
+#: templates/students/groups_list.html:10
+msgid "Add group"
+msgstr ""
+
+#: templates/students/groups_list.html:24
+msgid "Leader"
+msgstr ""
+
+#: templates/students/groups_list.html:25
+msgid "Actions"
+msgstr ""
+
+#: templates/students/journal.html:6
+msgid "Accounting visit"
+msgstr ""
+
+#: templates/students/journal.html:10
+msgid "So far there is no student at the base. Please,"
+msgstr ""
+
+#: templates/students/journal.html:11
+msgid "add"
+msgstr ""
+
+#: templates/students/journal.html:11
+msgid "the first one"
+msgstr ""
+
+#: templates/students/journal.html:17
+msgid ""
+"Changes in the table are saved automatically with each click in the cell."
+msgstr ""
+
+#: templates/students/journal.html:18
+msgid "saveing"
+msgstr ""
+
+#: templates/students/journal.html:30
+msgid "Student"
+msgstr ""
+
+#: templates/students/login.html:16
+msgid "Your login"
+msgstr ""
+
+#: templates/students/login.html:22
+msgid "Password"
+msgstr ""
+
+#: templates/students/login.html:29
+msgid "Enter"
+msgstr ""
+
+#: templates/students/login.html:30 templates/students/my_account.html:51
+#: templates/students/signup.html:17 views/students.py:124
+msgid "Cancel"
+msgstr ""
+
+#: templates/students/my_account.html:17
+#: templates/students/students_list.html:26
+#: templates/students/students_list.html:54
+msgid "First name"
+msgstr ""
+
+#: templates/students/my_account.html:25
+#: templates/students/students_list.html:25
+#: templates/students/students_list.html:49
+msgid "Last name"
+msgstr ""
+
+#: templates/students/my_account.html:31
+msgid "Email"
+msgstr ""
+
+#: templates/students/my_account.html:37
+msgid "User"
+msgstr ""
+
+#: templates/students/my_account.html:43
+msgid "Phone"
+msgstr ""
+
+#: templates/students/my_account.html:50
+msgid "Update"
+msgstr ""
+
+#: templates/students/password_reset.html:7
+#: templates/students/password_reset.html:11
+msgid "Change password"
+msgstr ""
+
+#: templates/students/password_reset.html:12
+msgid ""
+"Enter your email adress and we will send you a link to reset your password"
+msgstr ""
+
+#: templates/students/password_reset.html:27
+msgid "Send password reset email"
+msgstr ""
+
+#: templates/students/password_reset_complete.html:7
+#: templates/students/password_reset_complete.html:11
+msgid "Password has been changed"
+msgstr ""
+
+#: templates/students/password_reset_complete.html:12
+msgid "You may now proceed to log in"
+msgstr ""
+
+#: templates/students/password_reset_complete.html:13
+#: templates/students/password_reset_done.html:13
+msgid "Return to log in"
+msgstr ""
+
+#: templates/students/password_reset_confirm.html:7
+msgid "Change password for"
+msgstr ""
+
+#: templates/students/password_reset_confirm.html:14
+msgid "New password"
+msgstr ""
+
+#: templates/students/password_reset_confirm.html:20
+msgid "New password confirmation"
+msgstr ""
+
+#: templates/students/password_reset_confirm.html:28
+msgid "Change"
+msgstr ""
+
+#: templates/students/password_reset_done.html:11
+msgid "Changing password"
+msgstr ""
+
+#: templates/students/password_reset_done.html:12
+msgid "Check your email for a link to reset your password"
+msgstr ""
+
+#: templates/students/signup.html:4 templates/students/signup.html:11
+msgid "Sign up"
+msgstr ""
+
+#: templates/students/signup.html:16
+msgid "Create an account"
+msgstr ""
+
+#: templates/students/signup.html:20
+msgid "Have you an account?"
 msgstr ""
 
 #: templates/students/students_confirm_delete.html:5
@@ -97,61 +307,49 @@ msgstr ""
 msgid "Students add"
 msgstr ""
 
-#: templates/students/students_list.html:19
-#: templates/students/students_list.html:28
-msgid "Search "
+#: templates/students/students_list.html:17
+msgid "Search without reload "
 msgstr ""
 
-#: templates/students/students_list.html:21
+#: templates/students/students_list.html:24
 msgid "Field for search"
 msgstr ""
 
-#: templates/students/students_list.html:22
-#: templates/students/students_list.html:46
-msgid "Last name"
-msgstr ""
-
-#: templates/students/students_list.html:23
-#: templates/students/students_list.html:51
-msgid "First name"
-msgstr ""
-
-#: templates/students/students_list.html:25
-#: templates/students/students_list.html:56
+#: templates/students/students_list.html:28
+#: templates/students/students_list.html:59
 msgid "Ticket"
 msgstr ""
 
-#: templates/students/students_list.html:27
+#: templates/students/students_list.html:30
 msgid "Enter data for search"
 msgstr ""
 
-#: templates/students/students_list.html:44
+#: templates/students/students_list.html:31
+msgid "Search "
+msgstr ""
+
+#: templates/students/students_list.html:47
 msgid "Photo"
 msgstr ""
 
-#: templates/students/students_list.html:65
+#: templates/students/students_list.html:68
 msgid "Birthday"
 msgstr ""
 
-#: templates/students/students_list.html:66
-#: templates/students/students_list.html:88
+#: templates/students/students_list.html:69
+#: templates/students/students_list.html:93
 msgid "Action "
 msgstr ""
 
-#: templates/students/students_list.html:81
-#: templates/students/students_list.html:82
-msgid "Edit"
-msgstr ""
-
-#: templates/students/students_list.html:92
+#: templates/students/students_list.html:97
 msgid "Edit "
 msgstr ""
 
-#: templates/students/students_list.html:93
+#: templates/students/students_list.html:98
 msgid "Journal "
 msgstr ""
 
-#: templates/students/students_list.html:94
+#: templates/students/students_list.html:99
 msgid "Delete "
 msgstr ""
 
@@ -159,60 +357,56 @@ msgstr ""
 msgid "Student not founded"
 msgstr ""
 
-#: views/students.py:70
+#: views/students.py:62
 msgid "First name is required"
 msgstr ""
 
-#: views/students.py:75
+#: views/students.py:67
 msgid "Last name is required"
 msgstr ""
 
-#: views/students.py:80
+#: views/students.py:72
 msgid "Birthday field is required"
 msgstr ""
 
-#: views/students.py:85
+#: views/students.py:77
 msgid "Number of ticket is required"
 msgstr ""
 
-#: views/students.py:90
+#: views/students.py:82
 msgid "Select group"
 msgstr ""
 
-#: views/students.py:96
+#: views/students.py:88
 msgid "Size of photo should not exceed 2Мб"
 msgstr ""
 
-#: views/students.py:98
+#: views/students.py:90
 msgid "Only type file jpeg, jpg, png"
 msgstr ""
 
-#: views/students.py:103
+#: views/students.py:95
 #, python-brace-format
 msgid "Student {0} {1} added successfully"
 msgstr ""
 
-#: views/students.py:108
+#: views/students.py:100
 msgid "Student addition canceled"
 msgstr ""
 
-#: views/students.py:131
+#: views/students.py:123
 msgid "Save "
 msgstr ""
 
-#: views/students.py:132
-msgid "Cancel"
-msgstr ""
-
-#: views/students.py:141
+#: views/students.py:133
 msgid "Student update successfully"
 msgstr ""
 
-#: views/students.py:145
+#: views/students.py:137
 msgid "Student update canceled"
 msgstr ""
 
-#: views/students.py:155
+#: views/students.py:147
 #, python-format
 msgid "Student %s  deleted"
 msgstr ""

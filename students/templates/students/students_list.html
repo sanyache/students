@@ -10,13 +10,16 @@
 {% block content %}
 
 <div class="container">
-    <div class="row col-xs-6">
+    <div class="row col-xs-3">
         <a href="{% url 'students_add' %}" class="btn btn-primary student-add-form-link">{% trans "Students add" %}</a>
+    </div>
+    <div class="row col-xs-3">
+        <a href="{% url 'student_search' %}" class="animated"> {% trans "Search without reload " %}</a>
     </div>
     <div class="row col-xs-6" id="search_student">
         <form method="post" enctype="multipart/form-data" action="." id="sear_form">
                {% csrf_token %}
-            <label for="search_student" ><a href="{% url 'student_search' %}" class="animated"> {% trans "Search " %}</a></label>
+
             <select id="search_field" name="search_field">
                 <option value="last_name">{% trans "Field for search" %}</option>
                 <option value="last_name">{% trans "Last name" %}</option>
@@ -35,7 +38,7 @@
 
 
                     <!--Start student listing -->
-  <div class="infinire-container">
+
   <table class="table table-hover table-striped">
     {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
     <thead>
@@ -101,10 +104,9 @@
         {% endfor %}
     </tbody>
   </table>
-  </div>
 {% if students.has_next %}
 
-    <a class="btn btn-primary load-more" href="?page={{ students.next_page_number }}" data-pages={{paginator.num_pages}} >load more {{ paginator.num_pages }}</a>
+    <a class="btn btn-primary load-more" href="?page={{ students.next_page_number }}" data-pages={{paginator.num_pages}} >load more </a>
 {% endif %}
 {% endwith %}
 {% with object_list=students %}

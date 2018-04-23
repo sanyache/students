@@ -35,6 +35,7 @@
                         <li><a href="{% url 'journal' %}">{% trans "Journal" %}</a></li>
                         <li><a href="{% url 'groups' %}">{% trans "Groups" %}</a></li>
                         <li><a href="{% url 'exams' %}">{% trans "Exams" %}</a></li>
+                        <li><a href="{% url 'api'%}">API</a></li>
                     </ul>
                 </li>
 
@@ -113,6 +114,7 @@
                         <li role="presentation" {% if '/groups' in request.path  %} class="active" {% endif %} ><a href="{% url 'groups' %}">{% trans "Groups" %}</a></li>
                         <li role="presentation" {% if '/exams' in request.path %} class="active" {% endif %}><a href="{% url 'exams' %}">{% trans "Exams" %}</a></li>
                         <li role="presentation" {% if '/contact_admin' in request.path %} class="active" {% endif %}><a href="{% url 'contact_admin' %}">{% trans "Contact admin" %}</a></li>
+                        <li role="presentation" {% if '/api' in request.path %} class="active" {% endif %}><a href="{% url 'api' %}">API</a></li>
                         {% endif %}
                     </ul>
                 </div>

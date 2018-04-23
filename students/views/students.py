@@ -39,15 +39,7 @@ def students_list(request):
         else:
             messages.info(request, _(u"Student not founded"))
             return HttpResponseRedirect(reverse('home'))
-        #    return HttpResponseRedirect(u'%s?status_message=%s'%(reverse('home'),u"Студента не знайдено"))
-    #if request.GET.get('q', ''):
-    #    q = request.GET.get('q', '')
-    #    students = Student.objects.filter(last_name__icontains=q)
-    #    name_list = []
-    #    for student in students :
-    #        new = student.last_name
-    #        name_list.append(new)
-    #    return  HttpResponse(json.dumps(name_list), content_type="application/json")
+
 
     if order_by in ('last_name', 'first_name','ticket'):
         students = students.order_by(order_by)

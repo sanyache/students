@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^students/(?P<pk>\d+)/edit/$', StudentUpdateView.as_view(), name='students_edit'),
     url(r'^students/(?P<pk>\d+)/delete/$', StudentDeleteView.as_view(), name='students_delete'),
 
-    url(r'^students/api/$', StudentListAPI.as_view()),
+    url(r'^students/api/$', StudentListAPI.as_view(), name='api'),
     url(r'^students/api/(?P<pk>[0-9]+)/$', StudentDetailAPI.as_view()),
     url(r'^students/search/$', Search.as_view(), name='search'),
     url(r'^students/student_search/$', StudentSearch.as_view(), name='student_search'),
