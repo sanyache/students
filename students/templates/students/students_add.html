@@ -1,55 +1,56 @@
 {% extends "students/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
 {% block meta_title %}Додати cтудента{% endblock meta_title %}
-{% block title %}Додати студента{% endblock title %}
+{% block title %}{% trans 'Add student' %}{% endblock title %}
 {% block content %}
 
 <form action="{% url 'students_add' %}" class="form-horizontal" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="form-group {% if errors.first_name %}has-error{% endif %}">
-        <label class="col-sm-2 control-label " for="first_name">Ім'я*</label>
+        <label class="col-sm-2 control-label " for="first_name">{% trans 'First name' %}*</label>
         <div class="col-sm-3">
-            <input class="form-control" name="first_name" id="first_name" type="text" placeholder="Ім'я студента"
+            <input class="form-control" name="first_name" id="first_name" type="text" placeholder="{% trans 'First name' %}"
                     value="{{ request.POST.first_name }}">
             <span class="help-block">{{ errors.first_name }}</span>
         </div>
     </div>
     <div class="form-group {% if errors.last_name %}has-error{% endif %}">
-        <label class="col-sm-2 control-label " for="last_name">Прізвище*</label>
+        <label class="col-sm-2 control-label " for="last_name">{% trans 'Last name' %}*</label>
         <div class="col-sm-3">
-            <input class="form-control" name="last_name" id="last_name" type="text" placeholder="Прізвище"
+            <input class="form-control" name="last_name" id="last_name" type="text" placeholder="{% trans 'Last name' %}"
                     value="{{ request.POST.last_name }}">
             <span class="help-block">{{ errors.last_name }}</span>
         </div>
     </div>
     <div class="form-group {% if errors.ticket %}has-error{% endif %}">
-        <label class="col-sm-2 control-label " for="ticket">Номер квитка*</label>
+        <label class="col-sm-2 control-label " for="ticket">{% trans 'Ticket' %}*</label>
         <div class="col-sm-3">
-            <input class="form-control" name="ticket" id="ticket" type="text" placeholder="Номер квитка"
+            <input class="form-control" name="ticket" id="ticket" type="text" placeholder="{% trans 'Ticket' %}"
                     value="{{ request.POST.ticket }}">
             <span class="help-block">{{ errors.ticket }}</span>
         </div>
     </div>
     <div class=" form-group {% if errors.birthday %}has-error{% endif %}">
-        <label class="col-sm-2 control-label " for="birthday">День народження*</label>
+        <label class="col-sm-2 control-label " for="birthday">{% trans 'Birthday' %}*</label>
         <div class="col-sm-3 input-group">
-            <input class="dateinput form-control" id="birthday" name="birthday" type="date" placeholder="рррр-мм-дд">
+            <input class="dateinput form-control" id="birthday" name="birthday" type="date" placeholder="{% trans 'yyyy-mm-dd'%}">
             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
             <span class="help-block">{{ errors.birthday }}</span>
         </div>
     </div>
     <div class="form-group {% if errors.photo %}has-error{% endif %}">
         <div class="col-xs-offset-2 col-xs-10">
-            <label  for="photo">Фото*</label>
+            <label  for="photo">{% trans 'Photo' %}*</label>
             <input type="file" value="" name="photo" id="photo">
             <span class="help-block">{{ errors.photo }}</span>
         </div>
     </div>
      <div class="form-group {% if errors.student_group %}has-error{% endif %} ">
-        <label class="col-sm-2 control-label " for="student_group">Групи*</label>
+        <label class="col-sm-2 control-label " for="student_group">{% trans 'Group' %}*</label>
         <div class="col-sm-3">
             <select id="student_group" name="student_group">
-                <option value="">Групи*</option>
+                <option value="">{% trans 'Group' %}</option>
                 {% for group in groups %}
                 <option value="{{ group.id }}"
                 {% if group.id == request.POST.student_group|add:0 %}selected="1"{% endif %}>{{ group.title }}</option>
@@ -59,7 +60,7 @@
         </div>
      </div>
 <div class="form-group">
-    <label class="col-sm-2 control-label " for="notes">Додаткові нотатки</label>
+    <label class="col-sm-2 control-label " for="notes">{% trans 'Notes' %}</label>
     <div class="col-sm-3">
         <textarea class=" form-control" rows="5" id="notes" name="notes"></textarea>
     </div>
@@ -67,8 +68,8 @@
 <div class="form-group">
     <div class="panel  col-sm-5">
         <div class="panel-footer col-sm-offset-5">
-            <input type="submit" value="Додати" name="add_button" class="btn btn-primary"/>
-            <button type="submit" name="cancel_button" class="btn btn-link">Скасувати</button>
+            <input type="submit" value="{% trans 'Add' %}" name="add_button" class="btn btn-primary"/>
+            <button type="submit" name="cancel_button" class="btn btn-link">{% trans 'Cancel' %}</button>
         </div>
     </div>
 </div>

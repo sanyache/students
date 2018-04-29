@@ -1,10 +1,11 @@
 {% extends "students/base.html" %}
+{% load i18n %}
 {% load static from staticfiles %}
 {% block meta_title %}Створення групи{% endblock meta_title %}
-{% block title %}Додати групу{% endblock title %}
+{% block title %}{% trans 'Add group' %}{% endblock title %}
 {% block status_message %}
 {% if form.errors %}
-<div class="alert alert-warning" role="alert">Виправте помилки</div>
+<div class="alert alert-warning" role="alert">{% trans 'Correct errors' %}</div>
 {% endif %}
 {% endblock status_message %}
 {% block content %}
@@ -16,8 +17,8 @@
     <div class="form-group">
         <div class="panel  col-sm-5">
             <div class="panel-footer col-sm-offset-5">
-                <input type="submit" value="Зберегти" name="add_button" class="btn btn-primary"/>
-                <button type="submit" name="cancel" class="btn btn-link" value="Скасувати">Скасувати</button>
+                <input type="submit" value="{% trans 'Save' %}" name="add_button" class="btn btn-primary"/>
+                <button type="submit" name="cancel" class="btn btn-link" value="Скасувати">{% trans 'Cancel' %}</button>
             </div>
         </div>
     </div>

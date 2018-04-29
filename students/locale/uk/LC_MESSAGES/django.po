@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-22 19:48+0000\n"
+"POT-Creation-Date: 2018-04-29 07:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,6 +31,113 @@ msgstr "Заголовок"
 msgid "Text area"
 msgstr "Текст повідомлення"
 
+#: models.py:11 models.py:115 templates/students/journal.html:30
+msgid "Student"
+msgstr "Студент"
+
+#: models.py:12 templates/students/base.html:32 templates/students/base.html:34
+#: templates/students/base.html:111 templates/students/students_list.html:4
+msgid "Students"
+msgstr "Студенти"
+
+#: models.py:16 templates/students/my_account.html:17
+#: templates/students/students_add.html:11
+#: templates/students/students_add.html:13
+#: templates/students/students_list.html:26
+#: templates/students/students_list.html:54
+msgid "First name"
+msgstr "Ім'я"
+
+#: models.py:21 templates/students/my_account.html:25
+#: templates/students/students_add.html:19
+#: templates/students/students_add.html:21
+#: templates/students/students_list.html:25
+#: templates/students/students_list.html:49
+msgid "Last name"
+msgstr "Прізвище"
+
+#: models.py:27
+msgid "Middle name"
+msgstr "По батькові"
+
+#: models.py:32 templates/students/students_add.html:35
+#: templates/students/students_list.html:68
+msgid "Birthday"
+msgstr "День народження"
+
+#: models.py:38 templates/students/students_add.html:44
+#: templates/students/students_list.html:47
+msgid "Photo"
+msgstr "Фото"
+
+#: models.py:43 templates/students/students_add.html:27
+#: templates/students/students_add.html:29
+#: templates/students/students_list.html:28
+#: templates/students/students_list.html:59
+msgid "Ticket"
+msgstr "Квиток"
+
+#: models.py:46 models.py:61 models.py:95 templates/students/base.html:44
+#: templates/students/exams_list.html:24 templates/students/groups_list.html:23
+#: templates/students/students_add.html:50
+#: templates/students/students_add.html:53
+#: templates/students/students_list.html:27
+#: templates/students/students_list.html:64
+msgid "Group"
+msgstr "Група"
+
+#: models.py:53 templates/students/students_add.html:63
+msgid "Notes"
+msgstr "Нотатки"
+
+#: models.py:62 templates/students/base.html:36
+#: templates/students/base.html:114 templates/students/groups_list.html:5
+msgid "Groups"
+msgstr "Групи"
+
+#: models.py:66
+#| msgid "Group"
+msgid "Group name"
+msgstr "Група"
+
+#: models.py:72 templates/students/groups_list.html:24
+msgid "Leader"
+msgstr "Староста"
+
+#: models.py:81
+msgid "Exam"
+msgstr "Екзамен"
+
+#: models.py:82 templates/students/base.html:37
+#: templates/students/base.html:115 templates/students/exams_list.html:5
+msgid "Exams"
+msgstr "Екзамени"
+
+#: models.py:87
+msgid "exam time"
+msgstr "Час екзамену"
+
+#: models.py:92 templates/students/exams_list.html:26
+msgid "Teacher"
+msgstr "Викладач"
+
+#: models.py:103 templates/students/exams_list.html:25
+msgid "Subject"
+msgstr "Предмет"
+
+#: models.py:111
+#| msgid "Journal"
+msgid "Month journal"
+msgstr "Журнал"
+
+#: models.py:112
+msgid "Month journals"
+msgstr "Місячні журнпли"
+
+#: models.py:119
+msgid "Date"
+msgstr "Дата"
+
 #: templates/contact_admin/form.html:5
 msgid "Contact with admin"
 msgstr "Контакт з адміном"
@@ -47,31 +154,9 @@ msgstr "Відправити"
 msgid "Students accounting service"
 msgstr "Сервіс обліку студентів"
 
-#: templates/students/base.html:32 templates/students/base.html:34
-#: templates/students/base.html:111 templates/students/students_list.html:4
-msgid "Students"
-msgstr "Студенти"
-
 #: templates/students/base.html:35 templates/students/base.html:113
 msgid "Journal"
 msgstr "Журнал"
-
-#: templates/students/base.html:36 templates/students/base.html:114
-#: templates/students/groups_list.html:5
-msgid "Groups"
-msgstr "Групи"
-
-#: templates/students/base.html:37 templates/students/base.html:115
-#: templates/students/exams_list.html:5
-msgid "Exams"
-msgstr "Екзамени"
-
-#: templates/students/base.html:44 templates/students/exams_list.html:24
-#: templates/students/groups_list.html:23
-#: templates/students/students_list.html:27
-#: templates/students/students_list.html:64
-msgid "Group"
-msgstr "Група"
 
 #: templates/students/base.html:46
 msgid "All students"
@@ -102,21 +187,30 @@ msgstr "Вхід"
 msgid "Contact admin"
 msgstr "Контакт з адміном"
 
-#: templates/students/exams_list.html:10
+#: templates/students/exams_add.html:5 templates/students/exams_list.html:10
 msgid "Add exam"
 msgstr "Додати екзамен"
+
+#: templates/students/exams_add.html:8
+#| msgid "Please correct the errors"
+msgid "Correct errers"
+msgstr "Будь ласка, виправте помилки"
+
+#: templates/students/exams_add.html:20 templates/students/groups_add.html:20
+#| msgid "Save "
+msgid "Save"
+msgstr "Зберегти"
+
+#: templates/students/exams_add.html:21 templates/students/groups_add.html:21
+#: templates/students/login.html:30 templates/students/my_account.html:51
+#: templates/students/signup.html:17 templates/students/students_add.html:72
+#: views/students.py:124
+msgid "Cancel"
+msgstr "Відмінити"
 
 #: templates/students/exams_list.html:23
 msgid "Exam day"
 msgstr "День екзамену"
-
-#: templates/students/exams_list.html:25
-msgid "Subject"
-msgstr "Предмет"
-
-#: templates/students/exams_list.html:26
-msgid "Teacher"
-msgstr "Викладач"
 
 #: templates/students/exams_list.html:27 templates/students/exams_list.html:41
 #: templates/students/groups_list.html:37
@@ -133,13 +227,14 @@ msgstr "Редагувати"
 msgid "Delete"
 msgstr "Видалити"
 
-#: templates/students/groups_list.html:10
+#: templates/students/groups_add.html:5 templates/students/groups_list.html:10
 msgid "Add group"
 msgstr "Додати групу"
 
-#: templates/students/groups_list.html:24
-msgid "Leader"
-msgstr "Староста"
+#: templates/students/groups_add.html:8
+#| msgid "Please correct the errors"
+msgid "Correct errors"
+msgstr "Будь ласка, виправте помилки"
 
 #: templates/students/groups_list.html:25
 msgid "Actions"
@@ -170,10 +265,6 @@ msgstr "Зміни відбуваються автоматично після к
 msgid "saveing"
 msgstr "йде збереження"
 
-#: templates/students/journal.html:30
-msgid "Student"
-msgstr "Студент"
-
 #: templates/students/login.html:16
 msgid "Your login"
 msgstr "Ваш логін"
@@ -185,23 +276,6 @@ msgstr "Пароль"
 #: templates/students/login.html:29
 msgid "Enter"
 msgstr "Вхід"
-
-#: templates/students/login.html:30 templates/students/my_account.html:51
-#: templates/students/signup.html:17 views/students.py:124
-msgid "Cancel"
-msgstr "Відмінити"
-
-#: templates/students/my_account.html:17
-#: templates/students/students_list.html:26
-#: templates/students/students_list.html:54
-msgid "First name"
-msgstr "Ім'я"
-
-#: templates/students/my_account.html:25
-#: templates/students/students_list.html:25
-#: templates/students/students_list.html:49
-msgid "Last name"
-msgstr "Прізвище"
 
 #: templates/students/my_account.html:31
 msgid "Email"
@@ -264,7 +338,6 @@ msgid "Change"
 msgstr "Змінити"
 
 #: templates/students/password_reset_done.html:11
-#| msgid "Change password"
 msgid "Changing password"
 msgstr "Зміна пароля"
 
@@ -283,6 +356,19 @@ msgstr "Створити акаунт"
 #: templates/students/signup.html:20
 msgid "Have you an account?"
 msgstr "Маєте  акаунт?"
+
+#: templates/students/students_add.html:5
+msgid "Add student"
+msgstr "Додати студента"
+
+#: templates/students/students_add.html:37
+msgid "yyyy-mm-dd"
+msgstr "рррр-мм-дд"
+
+#: templates/students/students_add.html:71
+#| msgid "add"
+msgid "Add"
+msgstr "Додайте"
 
 #: templates/students/students_confirm_delete.html:5
 #: templates/students/students_confirm_delete.html:6
@@ -318,11 +404,6 @@ msgstr "Пошук без перезавнтаження"
 msgid "Field for search"
 msgstr "Поле пошуку"
 
-#: templates/students/students_list.html:28
-#: templates/students/students_list.html:59
-msgid "Ticket"
-msgstr "Квиток"
-
 #: templates/students/students_list.html:30
 msgid "Enter data for search"
 msgstr "Введіть дані для пошуку"
@@ -330,14 +411,6 @@ msgstr "Введіть дані для пошуку"
 #: templates/students/students_list.html:31
 msgid "Search "
 msgstr "Пошук"
-
-#: templates/students/students_list.html:47
-msgid "Photo"
-msgstr "Фото"
-
-#: templates/students/students_list.html:68
-msgid "Birthday"
-msgstr "День народження"
 
 #: templates/students/students_list.html:69
 #: templates/students/students_list.html:93

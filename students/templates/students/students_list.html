@@ -44,7 +44,7 @@
     <thead>
         <tr>
             <th><a href=""></a>№</th>
-            <th>{% trans "Photo" %}</th>
+            <th>{% trans "Photo" %} <br>onCllick</th>
             <th><a href="{% url 'home' %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">
                 {% trans "Last name" %}
                 {% if order_by == 'last_name' and reverse != '1' %}&uarr;
